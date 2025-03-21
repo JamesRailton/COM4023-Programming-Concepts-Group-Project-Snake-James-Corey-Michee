@@ -11,6 +11,8 @@ public class Snake extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     int red, green, blue;
+    int speed = 3;
+    int count = 0;
     public Snake(int red, int green, int blue)
     {
         setRotation(270);
@@ -22,6 +24,20 @@ public class Snake extends Actor
     }
     public void act()
     {
-        // Add your action code here.
+        count++;
+        getWorld().addObject(new Tail(red, green, blue), getX(), getY());
+        move(speed);
+        if(Greenfoot.isKeyDown("right")){
+            setRotation(0);
+        }
+        if(Greenfoot.isKeyDown("left")){
+            setRotation(180);
+        }
+        if(Greenfoot.isKeyDown("up")){
+            setRotation(270);
+        }
+        if(Greenfoot.isKeyDown("down")){
+            setRotation(90);
+        }
     }
 }
