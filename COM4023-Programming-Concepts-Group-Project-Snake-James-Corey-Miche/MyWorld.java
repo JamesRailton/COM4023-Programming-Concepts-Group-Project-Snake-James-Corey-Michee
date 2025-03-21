@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * @author (Corey Wright, James Railton, Michee Kibenge) 
- * @version (0.3)
+ * @version (0.4)
  */
 public class MyWorld extends World
 {
@@ -23,6 +23,7 @@ public class MyWorld extends World
         addObject(playerSnake, 500, 300);
         addObject(snakeCounter,50, 30);
         
+        Tail.snakeLength = 1;  
     }
     public void act()
     {
@@ -30,7 +31,6 @@ public class MyWorld extends World
         if(count > 100) {
             addObject(new Food(255, 0, 0), Greenfoot.getRandomNumber(getWidth() -1), Greenfoot.getRandomNumber(getHeight() -1));
             count =0;
-            
         }
     }
 }

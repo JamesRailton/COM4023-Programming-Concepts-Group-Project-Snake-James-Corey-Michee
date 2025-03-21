@@ -1,19 +1,12 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class Food here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Corey Wright, James Railton, Michee Kibenge) 
+ * @version (0.2)
  */
+
 public class Food extends Actor
 {
-
-    /**
-     * Act - do whatever the Food wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    
     int red, green, blue;
     int count = 0;
     
@@ -23,8 +16,9 @@ public class Food extends Actor
         this.green = green;
         this.blue = blue;
         getImage().setColor(new Color(red,green,blue));
-        getImage().fillRect(0,0,40,40);
+        getImage().fillRect(0,0,20,20);
     }
+    
     public void act()
     {
         count++;
