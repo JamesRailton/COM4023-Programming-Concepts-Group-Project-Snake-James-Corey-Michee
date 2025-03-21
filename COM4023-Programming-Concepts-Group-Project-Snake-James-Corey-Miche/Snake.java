@@ -10,6 +10,7 @@ public class Snake extends Actor
      * Act - do whatever the Snake wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
     int red, green, blue, player;
     int speed = 3;
     int count = 0;
@@ -29,6 +30,11 @@ public class Snake extends Actor
         count++;
         getWorld().addObject(new Tail(red, green, blue), getX(), getY());
         move(speed);
+        moveAround();
+        eatFood();
+    }
+    public void moveAround()
+    {
         if(this.player == 0){
             if(Greenfoot.isKeyDown("right")){
                 setRotation(0);
@@ -42,6 +48,14 @@ public class Snake extends Actor
             if(Greenfoot.isKeyDown("down")){
                 setRotation(90);
             }
+        }
+    }
+    public void eatFood()
+    {
+        if(isTouching(Food.class) && player == 0){
+            MyWorld myWorld = (MyWorld) getWorld();
+            myWorld.snakeCounter.addScore();
+            
         }
     }
 }
