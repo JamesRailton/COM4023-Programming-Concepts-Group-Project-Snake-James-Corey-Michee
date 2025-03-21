@@ -4,17 +4,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (Corey Wright, James Railton, Michee Kibenge) 
  * @version (0.4)
  */
-public class MyWorld extends World
-{
 
-    /**
-     * Constructor for objects of class MyWorld.
-     * 
-     */
+public class GameWorld extends World
+{
+    public GreenfootSound backgroundMusic = new GreenfootSound("themesong.mp3");
     Snake playerSnake = new Snake(0, 0,255,0);
     Counter snakeCounter = new Counter();
-    int count =0;
-    public MyWorld()
+    int count = 0;
+    
+    public GameWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(700, 500, 1);
@@ -27,10 +25,14 @@ public class MyWorld extends World
     }
     public void act()
     {
+        backgroundMusic.playLoop();
         count++;
         if(count > 100) {
             addObject(new Food(255, 0, 0), Greenfoot.getRandomNumber(getWidth() -1), Greenfoot.getRandomNumber(getHeight() -1));
             count =0;
+            
         }
+        
+        
     }
 }
