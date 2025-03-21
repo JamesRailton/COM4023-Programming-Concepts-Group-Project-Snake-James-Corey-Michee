@@ -1,10 +1,10 @@
 #Greenfoot project file
 class.MyWorld.image=rivets.jpg
-editor.fx.0.height=755
-editor.fx.0.width=930
-editor.fx.0.x=1320
-editor.fx.0.y=224
-height=1058
+editor.fx.0.height=1055
+editor.fx.0.width=960
+editor.fx.0.x=0
+editor.fx.0.y=25
+height=1055
 package.numDependencies=0
 package.numTargets=1
 project.charset=UTF-8
@@ -29,6 +29,6 @@ target1.width=120
 target1.x=0
 target1.y=0
 version=3.1.0
-width=1509
-xPosition=925
-yPosition=164
+width=961
+xPosition=959
+yPosition=25
