@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * @author (Corey Wright, James Railton, Michee Kibenge) 
- * @version (0.1)
+ * @version (0.2)
  */
 public class Snake extends Actor
 {
@@ -32,6 +32,7 @@ public class Snake extends Actor
         move(speed);
         moveAround();
         eatFood();
+        checkBoundaries();
     }
     public void moveAround()
     {
@@ -55,7 +56,16 @@ public class Snake extends Actor
         if(isTouching(Food.class) && player == 0){
             MyWorld myWorld = (MyWorld) getWorld();
             myWorld.snakeCounter.addScore();
-            
+            Tail.snakeLength++;
+        }
+    }
+    public void checkBoundaries()
+    {
+        if (getX() <= 0 || getX() >= getWorld().getWidth() - 1 || getY() <= 0 
+        || getY() >= getWorld().getHeight() - 1)
+        {
+            getWorld().addObject(new YouLose(), getWorld().getWidth()/2, getWorld().getHeight()/2);
+            Greenfoot.stop();
         }
     }
 }

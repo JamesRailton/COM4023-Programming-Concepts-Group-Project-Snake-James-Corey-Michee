@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * @author (Corey Wright, James Railton, Michee Kibenge) 
- * @version (0.2)
+ * @version (0.3)
  */
 public class Tail extends Actor
 {
@@ -27,20 +27,14 @@ public class Tail extends Actor
         
         countLength++;
         
-        if(countLength > 15 && isTouching(Snake.class)){
+        if(countLength > 5 && isTouching(Snake.class)){
             getWorld().addObject(new YouLose(), getWorld().getWidth()/2, getWorld().getHeight()/2);
             Greenfoot.stop();
         }
         
         if(snake == 0 && countLength % snakeLength == 0){
             getWorld().removeObject(this);
-            snakeLength++;
+            //snakeLength++;
         }
-        
-        if(snake == 4 && countLength % snakeLength == 0){
-            getWorld().removeObject(this);
-            snakeLength++;
-        }
-        
     }
 }
