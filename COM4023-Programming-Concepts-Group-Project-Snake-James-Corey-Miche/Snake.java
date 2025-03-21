@@ -1,19 +1,16 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
 /**
  * @author (Corey Wright, James Railton, Michee Kibenge) 
- * @version (0.2)
+ * @version (0.3)
  */
+
 public class Snake extends Actor
 {
-    /**
-     * Act - do whatever the Snake wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private int red, green, blue, player;
+    private int speed = 3;
+    private int count = 0;
     
-    int red, green, blue, player;
-    int speed = 3;
-    int count = 0;
     public Snake(int player, int red, int green, int blue)
     {
         setRotation(270);
@@ -24,17 +21,18 @@ public class Snake extends Actor
         getImage().setColor(new Color(red,green,blue));
         getImage().fillRect(0, 0, 40, 40);
     }
-
+    
     public void act()
     {
         count++;
         getWorld().addObject(new Tail(red, green, blue), getX(), getY());
         move(speed);
-        moveAround();
+        playerInput();
         eatFood();
-        checkBoundaries();
+        gameBoundaries();
     }
-    public void moveAround()
+    
+    private void playerInput()
     {
         if(this.player == 0){
             if(Greenfoot.isKeyDown("right")){
@@ -51,15 +49,19 @@ public class Snake extends Actor
             }
         }
     }
-    public void eatFood()
+    
+    // Used to increase lenght of snake when food is eaten, and add eaten food to score
+    private void eatFood()
     {
         if(isTouching(Food.class) && player == 0){
             MyWorld myWorld = (MyWorld) getWorld();
             myWorld.snakeCounter.addScore();
-            Tail.snakeLength++;
+            Tail.snakeLength+= 10;
         }
     }
-    public void checkBoundaries()
+    
+    // Used to game over if player leaves game area
+    private void gameBoundaries()
     {
         if (getX() <= 0 || getX() >= getWorld().getWidth() - 1 || getY() <= 0 
         || getY() >= getWorld().getHeight() - 1)
