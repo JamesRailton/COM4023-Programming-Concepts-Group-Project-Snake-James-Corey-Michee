@@ -1,10 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class YouWin here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Trying to find better way of implimenting lose/win screens (@James)
  */
 public class YouWin extends Actor
 {
