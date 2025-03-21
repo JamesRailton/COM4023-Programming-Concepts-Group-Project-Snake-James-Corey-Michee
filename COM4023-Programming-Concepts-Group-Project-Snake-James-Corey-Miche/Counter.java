@@ -26,7 +26,9 @@ public class Counter extends Actor
     
     private void youWin()
     {
-        if (playerScore == 10){
+        if (playerScore == 1){
+            GameWorld gameWorld = (GameWorld) getWorld();
+            gameWorld.backgroundMusic.stop();
             getWorld().addObject(new YouWin(), getWorld().getWidth()/2, getWorld().getHeight()/2);
             Greenfoot.stop();
         }

@@ -54,8 +54,8 @@ public class Snake extends Actor
     private void eatFood()
     {
         if(isTouching(Food.class) && player == 0){
-            MyWorld myWorld = (MyWorld) getWorld();
-            myWorld.snakeCounter.addScore();
+            GameWorld gameWorld = (GameWorld) getWorld();
+            gameWorld.snakeCounter.addScore();
             Tail.snakeLength+= 10;
         }
     }
