@@ -30,6 +30,7 @@ public class GameWorld extends World
 
     public void act()
     {
+        backgroundMusic.setVolume(50);
         backgroundMusic.playLoop();
         foodCount++;
         poisonousFoodCount++;
