@@ -2,7 +2,7 @@ import greenfoot.*;
 
 /**
  * @author (Corey Wright, James Railton, Michee Kibenge) 
- * @version (0.3)
+ * @version (0.7)
  */
 
 public class Counter extends Actor
@@ -13,24 +13,24 @@ public class Counter extends Actor
     {
         setImage(new GreenfootImage("Score: " + playerScore,25,Color.BLUE, Color.WHITE));
     }    
+    
     public void act()
     {
         setImage(new GreenfootImage("Score: " + playerScore,25,Color.BLUE, Color.WHITE));
     }
+    
     public void addScore()
     {
         playerScore++;
     }
+    
     public void addBonusFoodScore()
     {
         playerScore = playerScore + 3;
     }
+    
     public void halveScore()
     {
-        //playerScore = (int) Math.floor(playerScore / 2);
-        //if(playerScore == 1){
-        //    playerScore = 0;
-        //}
         if (playerScore == 1) {
             playerScore = 0; 
         } else {

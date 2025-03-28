@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * @author (Corey Wright, James Railton, Michee Kibenge) 
- * @version (0.2)
+ * @version (0.7)
  */
 public class PoisonousFood extends Actor
 {
@@ -12,9 +12,11 @@ public class PoisonousFood extends Actor
     {
         setImage(imageName);
     }
+    
     public void act()
     {
         count++;
+        
         if(count > 400){
             getWorld().removeObject(this);
         }
