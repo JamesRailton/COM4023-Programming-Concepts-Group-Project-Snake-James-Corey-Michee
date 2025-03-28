@@ -1,15 +1,12 @@
 import greenfoot.*;  
-
 /**
  * @author (Corey Wright, James Railton, Michee Kibenge) 
  * @version (0.3)
  */
-
 public class Snake extends Actor
 {
     private int red, green, blue, player;
     private int speed = 3;
-    private int count = 0;
     Counter counter = new Counter();
 
     public Snake(int player, int red, int green, int blue)
@@ -27,7 +24,6 @@ public class Snake extends Actor
 
     public void act()
     {
-        count++;
         getWorld().addObject(new Tail(red, green, blue), getX(), getY());
         move(speed);
         playerInput();
@@ -38,49 +34,36 @@ public class Snake extends Actor
 
     private void playerInput()
     {
-        if(this.player == 0){
-            if(Greenfoot.isKeyDown("right")){
+        if(Greenfoot.isKeyDown("right")){
                 setRotation(0);
-            }
-
-            if(Greenfoot.isKeyDown("left")){
-                setRotation(180);
-            }
-
-            if(Greenfoot.isKeyDown("up")){
-                setRotation(270);
-            }
-
-            if(Greenfoot.isKeyDown("down")){
+        }
+        if(Greenfoot.isKeyDown("left")){
+            setRotation(180);
+        }
+        if(Greenfoot.isKeyDown("up")){
+            setRotation(270);
+        }
+        if(Greenfoot.isKeyDown("down")){
                 setRotation(90);
-            }
         }
     }
 
     private void eatFood()
     {
         // Used to increase length of snake when food is eaten, and add eaten food to score
-
-        if(isTouching(Food.class) && player == 0){
+        if(isTouching(Food.class)){
             GameWorld gameWorld = (GameWorld) getWorld();
             gameWorld.snakeCounter.addScore();
-            Food touchedFood = (Food) getOneIntersectingObject(Food.class);
-                if(touchedFood.isPoisonous()){
-                    Tail.snakeLength += 60;
-                } else {
-                    Tail.snakeLength += 30;
-                }
+            
+            Tail.snakeLength += 30;
         }
     }
 
     private void eatPoisonousFood() {
-        if (isTouching(Food.class)) {
-            Food touchedFood = (Food) getOneIntersectingObject(Food.class);
-            if (touchedFood != null && touchedFood.isPoisonous()) {
-                GameWorld gameWorld = (GameWorld) getWorld();
-                gameWorld.snakeCounter.halveScore(); // Assuming halveScore is in GameWorld
-                getWorld().removeObject(touchedFood);
-            }
+        if(isTouching(PoisonousFood.class)){
+            GameWorld gameWorld = (GameWorld) getWorld();
+            gameWorld.snakeCounter.halveScore();
+            Tail.snakeLength += 60;
         }
     }
 
