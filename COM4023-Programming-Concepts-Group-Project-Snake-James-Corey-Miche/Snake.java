@@ -107,7 +107,7 @@ public class Snake extends Actor
             GameWorld gameWorld = (GameWorld) getWorld();
             gameWorld.backgroundMusic.stop();
 
-            getWorld().addObject(new YouLose(), getWorld().getWidth()/2, getWorld().getHeight()/2);
+            getWorld().addObject(new YouLose("gameOver.png"), getWorld().getWidth()/2, getWorld().getHeight()/2);
             Greenfoot.stop();
         }
     }

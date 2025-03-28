@@ -13,4 +13,9 @@ public class YouLose extends Actor
     {
         // Add your action code here.
     }
+    
+    public YouLose(String setImage)
+    {
+        setImage(setImage);
+    }
 }
