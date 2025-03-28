@@ -1,7 +1,7 @@
 import greenfoot.*;
 /**
  * @author (Corey Wright, James Railton, Michee Kibenge) 
- * @version (0.5)
+ * @version (0.7)
  */
 public class Tail extends Actor
 {
@@ -18,10 +18,10 @@ public class Tail extends Actor
         getImage().setColor(new Color(red,green,blue));
         getImage().fillRect(0,0,40,40);
     }
+    
     public void act()
     {
         countLength++;
-
         
         // Causes game over if player collides with tail
         if(countLength > 10 && isTouching(Snake.class)){

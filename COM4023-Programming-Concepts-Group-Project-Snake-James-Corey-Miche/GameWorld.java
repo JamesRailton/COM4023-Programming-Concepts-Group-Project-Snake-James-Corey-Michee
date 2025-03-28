@@ -2,7 +2,7 @@ import greenfoot.*;
 import java.util.List;
 /**
  * @author (Corey Wright, James Railton, Michee Kibenge) 
- * @version (0.6)
+ * @version (0.7)
  */
 
 public class GameWorld extends World
@@ -14,9 +14,6 @@ public class GameWorld extends World
     private int poisonousFoodCount = 0;
     private int bonusFoodCount = 0;
     private static final int foodDistance = 40; // Minimum distance food must be away from snake & tail
-    
-    //Food food = new Food(0, 255, 0);  // red for regular food
-    //PoisonousFood poisonousFood = new PoisonousFood(255, 0, 0); // Yellow for poisonous food
 
     public GameWorld()
     {    
@@ -37,14 +34,17 @@ public class GameWorld extends World
         foodCount++;
         poisonousFoodCount++;
         bonusFoodCount++;
+        
         if (foodCount > 150) {
             spawnFood(new Food("apple2.png"));
             foodCount = 0;
         }
+        
         if (poisonousFoodCount > 75) {
             spawnFood(new PoisonousFood("apple1.png"));
             poisonousFoodCount = 0;
         }
+        
         if (bonusFoodCount > 300) {
             spawnFood(new BonusFood("apple3.png"));
             bonusFoodCount = 0;
@@ -77,6 +77,7 @@ public class GameWorld extends World
                 return true;
             }
         }
+        
         return false; // Position is safe for food to spawn
     }
 

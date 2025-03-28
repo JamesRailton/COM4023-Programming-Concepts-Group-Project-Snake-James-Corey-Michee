@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * @author (Corey Wright, James Railton, Michee Kibenge) 
- * @version (0.2)
+ * @version (0.7)
  */
 public class BonusFood extends Actor
 {
@@ -12,6 +12,7 @@ public class BonusFood extends Actor
     {
         setImage(imageName);
     }
+    
     public void act()
     {
         count++;

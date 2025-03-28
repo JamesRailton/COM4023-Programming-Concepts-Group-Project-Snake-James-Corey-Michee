@@ -2,7 +2,7 @@ import greenfoot.*;
 import java.util.List;
 /**
  * @author (Corey Wright, James Railton, Michee Kibenge) 
- * @version (0.3)
+ * @version (0.7)
  */
 public class Snake extends Actor
 {
@@ -40,12 +40,15 @@ public class Snake extends Actor
         if(Greenfoot.isKeyDown("right")){
                 setRotation(0);
         }
+        
         if(Greenfoot.isKeyDown("left")){
             setRotation(180);
         }
+        
         if(Greenfoot.isKeyDown("up")){
             setRotation(270);
         }
+        
         if(Greenfoot.isKeyDown("down")){
                 setRotation(90);
         }
@@ -55,6 +58,7 @@ public class Snake extends Actor
     {
         // Used to increase length of snake when food is eaten, and add eaten food to score
         if(isTouching(Food.class)){
+            
             GameWorld gameWorld = (GameWorld) getWorld();
             gameWorld.snakeCounter.addScore();
             
@@ -64,6 +68,7 @@ public class Snake extends Actor
 
     private void eatPoisonousFood() {
         if(isTouching(PoisonousFood.class)){
+            
             GameWorld gameWorld = (GameWorld) getWorld();
             gameWorld.snakeCounter.halveScore();
             Tail.snakeLength += 60;
@@ -74,6 +79,7 @@ public class Snake extends Actor
     
     private void eatBonusFood() {
         if(isTouching(BonusFood.class)){
+            
             GameWorld gameWorld = (GameWorld) getWorld();
             gameWorld.snakeCounter.addBonusFoodScore(); 
             //Only decreases tail when tail has actually grown from eating food beforehand
@@ -82,6 +88,7 @@ public class Snake extends Actor
                 // loop through 50% of tail instances and remove them
                 List<Tail> tailList = getWorld().getObjects(Tail.class);
                 int removeCount = tailList.size() / 2;
+                
                 for (int i = 0; i < removeCount; i++) {
                     getWorld().removeObject(tailList.get(i));
                 }
