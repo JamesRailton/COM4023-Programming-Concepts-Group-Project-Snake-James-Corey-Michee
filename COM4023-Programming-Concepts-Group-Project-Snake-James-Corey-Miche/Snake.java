@@ -65,11 +65,20 @@ public class Snake extends Actor
             GameWorld gameWorld = (GameWorld) getWorld();
             gameWorld.snakeCounter.addScore();
             Food touchedFood = (Food) getOneIntersectingObject(Food.class);
-                if(touchedFood.isPoisonous()){
+            if (touchedFood != null) {
+                if(touchedFood.isPoisonous()) {
                     Tail.snakeLength += 60;
-                } else {
+                } 
+                else if (touchedFood.isGoodFood()) {
+                    gameWorld.snakeCounter.addGoodFoodScore();
+                    if (Tail.snakeLength > 1){
+                    Tail.snakeLength -= 30;
+                }
+                } 
+                else {
                     Tail.snakeLength += 30;
                 }
+            }
         }
     }
 

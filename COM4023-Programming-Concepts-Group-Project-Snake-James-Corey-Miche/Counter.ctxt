@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Counter
-comment0.text=\n\ @author\ (Corey\ Wright,\ James\ Railton,\ Michee\ Kibenge)\ \n\ @version\ (0.3)\n
+comment0.text=\r\n\ @author\ (Corey\ Wright,\ James\ Railton,\ Michee\ Kibenge)\ \r\n\ @version\ (0.3)\r\n
 comment1.params=
 comment1.target=Counter()
 comment2.params=
@@ -8,5 +8,7 @@ comment2.target=void\ act()
 comment3.params=
 comment3.target=void\ addScore()
 comment4.params=
-comment4.target=void\ halveScore()
-numComments=5
+comment4.target=void\ addGoodFoodScore()
+comment5.params=
+comment5.target=void\ halveScore()
+numComments=6

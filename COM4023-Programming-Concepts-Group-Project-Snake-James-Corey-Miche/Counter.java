@@ -21,6 +21,9 @@ public class Counter extends Actor
     {
         playerScore++;
     }
+    public void addGoodFoodScore(){
+        playerScore = playerScore + 3;
+    }
     public void halveScore()
     {
         playerScore = (int) Math.floor(playerScore / 2);

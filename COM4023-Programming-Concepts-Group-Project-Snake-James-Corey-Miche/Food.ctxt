@@ -1,10 +1,12 @@
 #BlueJ class context
 comment0.target=Food
-comment0.text=\n\ @author\ (Corey\ Wright,\ James\ Railton,\ Michee\ Kibenge)\ \n\ @version\ (0.2)\n
-comment1.params=red\ green\ blue\ isPoisonous
-comment1.target=Food(int,\ int,\ int,\ boolean)
+comment0.text=\r\n\ @author\ (Corey\ Wright,\ James\ Railton,\ Michee\ Kibenge)\ \r\n\ @version\ (0.2)\r\n
+comment1.params=red\ green\ blue\ isPoisonous\ isGoodFood
+comment1.target=Food(int,\ int,\ int,\ boolean,\ boolean)
 comment2.params=
 comment2.target=boolean\ isPoisonous()
 comment3.params=
-comment3.target=void\ act()
-numComments=4
+comment3.target=boolean\ isGoodFood()
+comment4.params=
+comment4.target=void\ act()
+numComments=5

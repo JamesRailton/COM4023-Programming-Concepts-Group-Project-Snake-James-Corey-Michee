@@ -11,9 +11,9 @@ public class GameWorld extends World
     Snake playerSnake = new Snake(0, 0, 255, 255);
     Counter snakeCounter = new Counter();
     private int count = 0;
-    Food regularFood = new Food(0, 255, 0, false);  // red for regular food
-    Food poisonousFood = new Food(255, 0, 0, true); // Yellow for poisonous food
-
+    Food regularFood = new Food(0, 255, 0, false, false);  // red for regular food
+    Food poisonousFood = new Food(255, 0, 0, true, false); // Yellow for poisonous food
+    Food goodFood = new Food(0, 0, 255, false, true); // Yellow for good food
     public GameWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -35,8 +35,8 @@ public class GameWorld extends World
         if(count > 100) {
             addObject(regularFood, Greenfoot.getRandomNumber(getWidth() -1), Greenfoot.getRandomNumber(getHeight() -1));
             addObject(poisonousFood, Greenfoot.getRandomNumber(getWidth() -1), Greenfoot.getRandomNumber(getHeight() -1));
+            addObject(goodFood, Greenfoot.getRandomNumber(getWidth() - 1), Greenfoot.getRandomNumber(getHeight() - 1));
             count = 0;
-
         }
     }
 }
