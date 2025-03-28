@@ -21,11 +21,20 @@ public class Counter extends Actor
     {
         playerScore++;
     }
+    public void addBonusFoodScore()
+    {
+        playerScore = playerScore + 3;
+    }
     public void halveScore()
     {
-        playerScore = (int) Math.floor(playerScore / 2);
-        if(playerScore == 1){
-            playerScore = 0;
+        //playerScore = (int) Math.floor(playerScore / 2);
+        //if(playerScore == 1){
+        //    playerScore = 0;
+        //}
+        if (playerScore == 1) {
+            playerScore = 0; 
+        } else {
+            playerScore /= 2;
         }
     }
 }
