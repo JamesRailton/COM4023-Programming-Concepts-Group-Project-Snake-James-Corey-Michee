@@ -1,8 +1,14 @@
 #BlueJ class context
 comment0.target=GameWorld
-comment0.text=\n\ @author\ (Corey\ Wright,\ James\ Railton,\ Michee\ Kibenge)\ \n\ @version\ (0.6)\n
+comment0.text=\r\n\ @author\ (Corey\ Wright,\ James\ Railton,\ Michee\ Kibenge)\ \r\n\ @version\ (0.6)\r\n
 comment1.params=
 comment1.target=GameWorld()
 comment2.params=
 comment2.target=void\ act()
-numComments=3
+comment3.params=food
+comment3.target=void\ spawnFood(greenfoot.Actor)
+comment4.params=x\ y
+comment4.target=boolean\ isTooCloseToSnake(int,\ int)
+comment5.params=x1\ y1\ x2\ y2
+comment5.target=double\ distance(int,\ int,\ int,\ int)
+numComments=6

@@ -21,6 +21,7 @@ public class Tail extends Actor
     public void act()
     {
         countLength++;
+
         
         // Causes game over if player collides with tail
         if(countLength > 10 && isTouching(Snake.class)){

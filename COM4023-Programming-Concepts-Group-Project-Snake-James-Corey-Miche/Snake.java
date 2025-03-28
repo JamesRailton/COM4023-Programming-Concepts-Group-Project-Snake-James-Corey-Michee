@@ -1,4 +1,5 @@
 import greenfoot.*;  
+import java.util.List;
 /**
  * @author (Corey Wright, James Railton, Michee Kibenge) 
  * @version (0.3)
@@ -24,11 +25,13 @@ public class Snake extends Actor
 
     public void act()
     {
+
         getWorld().addObject(new Tail(red, green, blue), getX(), getY());
         move(speed);
         playerInput();
         eatFood();
         eatPoisonousFood();
+        eatBonusFood();
         gameBoundaries();
     }
 
@@ -66,6 +69,23 @@ public class Snake extends Actor
             Tail.snakeLength += 60;
             
             
+        }
+    }
+    
+    private void eatBonusFood() {
+        if(isTouching(BonusFood.class)){
+            GameWorld gameWorld = (GameWorld) getWorld();
+            gameWorld.snakeCounter.addBonusFoodScore(); 
+            //Only decreases tail when tail has actually grown from eating food beforehand
+            if (Tail.snakeLength > 1) {
+                Tail.snakeLength /= 2; 
+                // loop through 50% of tail instances and remove them
+                List<Tail> tailList = getWorld().getObjects(Tail.class);
+                int removeCount = tailList.size() / 2;
+                for (int i = 0; i < removeCount; i++) {
+                    getWorld().removeObject(tailList.get(i));
+                }
+            }
         }
     }
 

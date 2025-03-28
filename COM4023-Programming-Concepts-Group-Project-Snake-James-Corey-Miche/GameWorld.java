@@ -1,5 +1,5 @@
 import greenfoot.*;
-
+import java.util.List;
 /**
  * @author (Corey Wright, James Railton, Michee Kibenge) 
  * @version (0.6)
@@ -12,6 +12,8 @@ public class GameWorld extends World
     Counter snakeCounter = new Counter();
     private int foodCount = 0;
     private int poisonousFoodCount = 0;
+    private int bonusFoodCount = 0;
+    private static final int foodDistance = 40; // Minimum distance food must be away from snake & tail
     
     //Food food = new Food(0, 255, 0);  // red for regular food
     //PoisonousFood poisonousFood = new PoisonousFood(255, 0, 0); // Yellow for poisonous food
@@ -34,13 +36,53 @@ public class GameWorld extends World
         backgroundMusic.playLoop();
         foodCount++;
         poisonousFoodCount++;
-        if(foodCount > 150) {
-            addObject(new Food("apple2.png"), Greenfoot.getRandomNumber(getWidth() -1), Greenfoot.getRandomNumber(getHeight() -1));
+        bonusFoodCount++;
+        if (foodCount > 150) {
+            spawnFood(new Food("apple2.png"));
             foodCount = 0;
         }
-        if(poisonousFoodCount > 75){
-            addObject(new PoisonousFood("apple1.png"), Greenfoot.getRandomNumber(getWidth() -1), Greenfoot.getRandomNumber(getHeight() -1));
+        if (poisonousFoodCount > 75) {
+            spawnFood(new PoisonousFood("apple1.png"));
             poisonousFoodCount = 0;
         }
+        if (bonusFoodCount > 300) {
+            spawnFood(new BonusFood("apple3.png"));
+            bonusFoodCount = 0;
+        }
+    }
+    
+    private void spawnFood(Actor food)
+    {
+        int x, y;
+        // generates random x,y coordinates
+        do {
+            x = Greenfoot.getRandomNumber(getWidth() - 1);
+            y = Greenfoot.getRandomNumber(getHeight() - 1);
+        } while (isTooCloseToSnake(x, y));
+
+        addObject(food, x, y); // When isTooCloseToSnake is false, food will spawn (because snake + tail is a suitable distance away)
+    }
+    
+    private boolean isTooCloseToSnake(int x, int y)
+    {
+        // Check if food is too close to the snake
+        if (distance(playerSnake.getX(), playerSnake.getY(), x, y) < foodDistance) {
+            return true;
+        }
+
+        // Check if coordinates generated is too close to any of part of the tail. If so, returns true
+        List<Tail> tailList = getObjects(Tail.class);
+        for (Tail tail : tailList) {
+            if (distance(tail.getX(), tail.getY(), x, y) < foodDistance) {
+                return true;
+            }
+        }
+        return false; // Position is safe for food to spawn
+    }
+
+    private double distance(int x1, int y1, int x2, int y2)
+    {
+        // Returns the distance between generated coordinates and snake
+        return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
     }
 }
