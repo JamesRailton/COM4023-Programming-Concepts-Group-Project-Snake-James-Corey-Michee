@@ -2,7 +2,7 @@ import greenfoot.*;
 
 /**
  * @author (Corey Wright, James Railton, Michee Kibenge) 
- * @version (0.5)
+ * @version (0.6)
  */
 
 public class GameWorld extends World
@@ -10,9 +10,11 @@ public class GameWorld extends World
     GreenfootSound backgroundMusic = new GreenfootSound("themesong.mp3");
     Snake playerSnake = new Snake(0, 0, 255, 255);
     Counter snakeCounter = new Counter();
-    private int count = 0;
-    Food regularFood = new Food(0, 255, 0, false);  // red for regular food
-    Food poisonousFood = new Food(255, 0, 0, true); // Yellow for poisonous food
+    private int foodCount = 0;
+    private int poisonousFoodCount = 0;
+    
+    //Food food = new Food(0, 255, 0);  // red for regular food
+    //PoisonousFood poisonousFood = new PoisonousFood(255, 0, 0); // Yellow for poisonous food
 
     public GameWorld()
     {    
@@ -31,12 +33,15 @@ public class GameWorld extends World
     public void act()
     {
         backgroundMusic.playLoop();
-        count++;
-        if(count > 100) {
-            addObject(regularFood, Greenfoot.getRandomNumber(getWidth() -1), Greenfoot.getRandomNumber(getHeight() -1));
-            addObject(poisonousFood, Greenfoot.getRandomNumber(getWidth() -1), Greenfoot.getRandomNumber(getHeight() -1));
-            count = 0;
-
+        foodCount++;
+        poisonousFoodCount++;
+        if(foodCount > 150) {
+            addObject(new Food(0,255,0), Greenfoot.getRandomNumber(getWidth() -1), Greenfoot.getRandomNumber(getHeight() -1));
+            foodCount = 0;
+        }
+        if(poisonousFoodCount > 75){
+            addObject(new PoisonousFood(255,0,0), Greenfoot.getRandomNumber(getWidth() -1), Greenfoot.getRandomNumber(getHeight() -1));
+            poisonousFoodCount = 0;
         }
     }
 }

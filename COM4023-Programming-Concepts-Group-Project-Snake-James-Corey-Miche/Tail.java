@@ -1,16 +1,13 @@
 import greenfoot.*;
-
 /**
  * @author (Corey Wright, James Railton, Michee Kibenge) 
  * @version (0.5)
  */
-
 public class Tail extends Actor
 {
     public static int snakeLength = 1;
     private int countLength = 0;
     private int red, green, blue, snake;
-    private int count = 0;
     
     public Tail(int red, int green, int blue)
     {
@@ -35,7 +32,7 @@ public class Tail extends Actor
         }
         
         // Removes player tail when becomes too long (Allows for moving tail)
-        if(snake == 0 && countLength % snakeLength == 0){
+        if(countLength % snakeLength == 0){
             getWorld().removeObject(this);
         }
     }
