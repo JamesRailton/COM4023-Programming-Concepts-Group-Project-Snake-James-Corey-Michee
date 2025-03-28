@@ -8,5 +8,5 @@ comment2.target=void\ act()
 comment3.params=
 comment3.target=void\ addScore()
 comment4.params=
-comment4.target=void\ youWin()
+comment4.target=void\ halveScore()
 numComments=5
