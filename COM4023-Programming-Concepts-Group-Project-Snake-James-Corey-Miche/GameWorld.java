@@ -13,9 +13,6 @@ public class GameWorld extends World
     private int foodCount = 0;
     private int poisonousFoodCount = 0;
     
-    //Food food = new Food(0, 255, 0);  // red for regular food
-    //PoisonousFood poisonousFood = new PoisonousFood(255, 0, 0); // Yellow for poisonous food
-
     public GameWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -31,6 +28,7 @@ public class GameWorld extends World
 
     public void act()
     {
+        backgroundMusic.setVolume(25);
         backgroundMusic.playLoop();
         foodCount++;
         poisonousFoodCount++;
