@@ -32,7 +32,7 @@ public class GameWorld extends World
 
     public void act()
     {
-        //backgroundMusic.playLoop();
+        backgroundMusic.playLoop();
         foodCount++;
         poisonousFoodCount++;
         if(foodCount > 150) {
