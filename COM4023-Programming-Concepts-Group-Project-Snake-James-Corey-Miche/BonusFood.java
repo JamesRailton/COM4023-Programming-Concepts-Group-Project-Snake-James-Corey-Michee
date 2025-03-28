@@ -1,7 +1,7 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 /**
  * @author (Corey Wright, James Railton, Michee Kibenge) 
- * @version (0.7)
+ * @version (1.0)
  */
 public class BonusFood extends Actor
 {
@@ -16,6 +16,7 @@ public class BonusFood extends Actor
     public void act()
     {
         count++;
+        
         if(count > 400){
             getWorld().removeObject(this);
         }

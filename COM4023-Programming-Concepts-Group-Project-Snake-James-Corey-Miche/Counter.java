@@ -2,7 +2,7 @@ import greenfoot.*;
 
 /**
  * @author (Corey Wright, James Railton, Michee Kibenge) 
- * @version (0.7)
+ * @version (1.0)
  */
 
 public class Counter extends Actor
@@ -18,6 +18,7 @@ public class Counter extends Actor
     public void act()
     {
         setImage(new GreenfootImage("Score: " + playerScore,25,Color.BLUE, Color.WHITE));
+        youWin();
     }
     
     public void addScore()
@@ -41,10 +42,10 @@ public class Counter extends Actor
     
     private void youWin()
     {
-         if (playerScore == 1){
+         if (playerScore == 15){
              GameWorld gameWorld = (GameWorld) getWorld();
              gameWorld.backgroundMusic.stop();
-             getWorld().addObject(new YouWin(), getWorld().getWidth()/2, getWorld().getHeight()/2);
+             getWorld().addObject(new YouWin("youWin.png"), getWorld().getWidth()/2, getWorld().getHeight()/2);
              gameWinSound.setVolume(25);
              gameWinSound.play();
              Greenfoot.stop();

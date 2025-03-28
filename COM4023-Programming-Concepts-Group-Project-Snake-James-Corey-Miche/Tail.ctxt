@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Tail
-comment0.text=\n\ @author\ (Corey\ Wright,\ James\ Railton,\ Michee\ Kibenge)\ \n\ @version\ (0.7)\n
+comment0.text=\n\ @author\ (Corey\ Wright,\ James\ Railton,\ Michee\ Kibenge)\ \n\ @version\ (1.0)\n
 comment1.params=red\ green\ blue
 comment1.target=Tail(int,\ int,\ int)
 comment2.params=

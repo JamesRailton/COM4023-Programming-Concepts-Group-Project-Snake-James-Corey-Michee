@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=BonusFood
-comment0.text=\n\ @author\ (Corey\ Wright,\ James\ Railton,\ Michee\ Kibenge)\ \n\ @version\ (0.7)\n
+comment0.text=\n\ @author\ (Corey\ Wright,\ James\ Railton,\ Michee\ Kibenge)\ \n\ @version\ (1.0)\n
 comment1.params=imageName
 comment1.target=BonusFood(java.lang.String)
 comment2.params=

@@ -1,8 +1,5 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
-/**
- * Trying to find better way of implimenting lose/win screens (@James)
- */
 public class YouLose extends Actor
 {
     /**
@@ -12,5 +9,10 @@ public class YouLose extends Actor
     public void act()
     {
         // Add your action code here.
+    }
+    
+    public YouLose(String setImage)
+    {
+        setImage(setImage);
     }
 }
