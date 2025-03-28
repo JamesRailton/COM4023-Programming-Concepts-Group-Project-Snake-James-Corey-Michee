@@ -2,7 +2,7 @@ import greenfoot.*;
 import java.util.List;
 /**
  * @author (Corey Wright, James Railton, Michee Kibenge) 
- * @version (0.7)
+ * @version (1.0)
  */
 
 public class GameWorld extends World

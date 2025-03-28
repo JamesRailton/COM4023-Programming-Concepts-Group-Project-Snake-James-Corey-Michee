@@ -13,4 +13,9 @@ public class YouWin extends Actor
     {
         // Add your action code here.
     }
+    
+    public YouWin(String setImage)
+    {
+        setImage(setImage);
+    }
 }

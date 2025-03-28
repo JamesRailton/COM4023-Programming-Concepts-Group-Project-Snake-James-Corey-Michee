@@ -1,7 +1,7 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 /**
  * @author (Corey Wright, James Railton, Michee Kibenge) 
- * @version (0.7)
+ * @version (1.0)
  */
 public class Food extends Actor
 {
