@@ -8,14 +8,9 @@ public class Food extends Actor
     private int red, green, blue;
     private int count = 0;
     
-    public Food(int red, int green, int blue) 
+    public Food(String imageName) 
     {
-        this.red = red;
-        this.green = green;
-        this.blue = blue;
-        
-        getImage().setColor(new Color(red,green,blue));
-        getImage().fillRect(0,0,20,20);
+        setImage(imageName);
     }
     public void act()
     {

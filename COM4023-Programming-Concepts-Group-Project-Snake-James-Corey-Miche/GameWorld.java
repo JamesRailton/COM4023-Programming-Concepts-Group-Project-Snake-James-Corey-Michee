@@ -32,15 +32,15 @@ public class GameWorld extends World
 
     public void act()
     {
-        backgroundMusic.playLoop();
+        //backgroundMusic.playLoop();
         foodCount++;
         poisonousFoodCount++;
         if(foodCount > 150) {
-            addObject(new Food(0,255,0), Greenfoot.getRandomNumber(getWidth() -1), Greenfoot.getRandomNumber(getHeight() -1));
+            addObject(new Food("apple2.png"), Greenfoot.getRandomNumber(getWidth() -1), Greenfoot.getRandomNumber(getHeight() -1));
             foodCount = 0;
         }
         if(poisonousFoodCount > 75){
-            addObject(new PoisonousFood(255,0,0), Greenfoot.getRandomNumber(getWidth() -1), Greenfoot.getRandomNumber(getHeight() -1));
+            addObject(new PoisonousFood("apple1.png"), Greenfoot.getRandomNumber(getWidth() -1), Greenfoot.getRandomNumber(getHeight() -1));
             poisonousFoodCount = 0;
         }
     }

@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Food
 comment0.text=\n\ @author\ (Corey\ Wright,\ James\ Railton,\ Michee\ Kibenge)\ \n\ @version\ (0.2)\n
-comment1.params=red\ green\ blue
-comment1.target=Food(int,\ int,\ int)
+comment1.params=imageName
+comment1.target=Food(java.lang.String)
 comment2.params=
 comment2.target=void\ act()
 numComments=3

@@ -64,6 +64,8 @@ public class Snake extends Actor
             GameWorld gameWorld = (GameWorld) getWorld();
             gameWorld.snakeCounter.halveScore();
             Tail.snakeLength += 60;
+            
+            
         }
     }
 

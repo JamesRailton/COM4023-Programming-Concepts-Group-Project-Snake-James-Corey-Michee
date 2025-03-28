@@ -8,14 +8,9 @@ public class PoisonousFood extends Actor
     private int red, green, blue;
     private int count = 0;
     
-    public PoisonousFood(int red, int green, int blue) 
+    public PoisonousFood(String imageName) 
     {
-        this.red = red;
-        this.green = green;
-        this.blue = blue;
-        
-        getImage().setColor(new Color(red,green,blue));
-        getImage().fillRect(0,0,20,20);
+        setImage(imageName);
     }
     public void act()
     {
