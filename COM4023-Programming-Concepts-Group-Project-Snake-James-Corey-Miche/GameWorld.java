@@ -21,8 +21,7 @@ public class GameWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(700, 500, 1);
 
-        getBackground().setColor(Color.BLACK);
-        getBackground().fill();
+        setBackground("rivets.jpg");
 
         addObject(playerSnake, 500, 300);
         addObject(snakeCounter,50, 30);
