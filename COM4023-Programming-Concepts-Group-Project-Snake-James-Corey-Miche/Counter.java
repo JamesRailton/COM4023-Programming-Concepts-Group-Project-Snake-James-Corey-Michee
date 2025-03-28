@@ -16,21 +16,17 @@ public class Counter extends Actor
     public void act()
     {
         setImage(new GreenfootImage("Score: " + playerScore,25,Color.BLUE, Color.WHITE));
-        youWin();
     }
     public void addScore()
     {
         playerScore++;
     }
-    private void youWin()
+    public void halveScore()
     {
-        if (playerScore == 15){
-            // Stops background music when player wins
-            GameWorld gameWorld = (GameWorld) getWorld();
-            gameWorld.backgroundMusic.stop();
-            
-            getWorld().addObject(new YouWin(), getWorld().getWidth()/2, getWorld().getHeight()/2);
-            Greenfoot.stop();
+        playerScore = (int) Math.floor(playerScore / 2);
+        if(playerScore == 1){
+            playerScore = 0;
         }
     }
 }
+
