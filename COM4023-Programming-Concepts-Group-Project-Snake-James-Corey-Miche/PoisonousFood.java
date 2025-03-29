@@ -5,13 +5,14 @@ import greenfoot.*;
  */
 public class PoisonousFood extends Actor
 {
-    private int count;
+    private int count; // counter for PoisonousFood removal
     
-    public PoisonousFood(String imageName) 
+    public PoisonousFood() 
     {
-        setImage(imageName);
+        setImage("apple1.png"); // Sets actor image to red apple
     }
     
+    // Used to increase counter by 1 each frame and once counter reaches 400 removes Poisonous Food from game and also removes if player collides with food
     public void act()
     {
         count++;

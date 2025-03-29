@@ -5,19 +5,19 @@ import greenfoot.*;
  */
 public class BonusFood extends Actor
 {
-    private int red, green, blue;
-    private int count = 0;
+    private int foodCount; // counter for Bonusfood removal
     
-    public BonusFood(String imageName) 
+    public BonusFood() 
     {
-        setImage(imageName);
+        setImage("apple3.png"); // Sets actor image to golden apple
     }
     
+    // Used to increase counter by 1 each frame and once counter reaches 400 removes BonusFood from game and also removes if player collides with food
     public void act()
     {
-        count++;
-        
-        if(count > 400){
+        foodCount++;
+
+        if(foodCount > 400){
             getWorld().removeObject(this);
         }
         

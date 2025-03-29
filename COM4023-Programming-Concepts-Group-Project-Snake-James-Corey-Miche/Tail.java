@@ -5,30 +5,27 @@ import greenfoot.*;
  */
 public class Tail extends Actor
 {
-    public static int snakeLength = 1;
-    private int countLength = 0;
-    private int red, green, blue, snake;
-    GreenfootSound gameOverSound = new GreenfootSound("gameover.mp3");
+    public static int snakeLength = 1; //Lenght of snake within game
+    private int countLength; // Count lenght to ensure tail does not become to long
+    GreenfootSound gameOverSound = new GreenfootSound("gameover.mp3"); // Imports the game over sound into game
     
-    public Tail(int red, int green, int blue)
+    // Creates tail for snake in game
+    public Tail()
     {
-        this.red = red;
-        this.green = green;
-        this.blue = blue;
-        
-        getImage().setColor(new Color(red,green,blue));
+        getImage().setColor(new Color(110,255,255)); 
         getImage().fillRect(0,0,40,40);
     }
-    
+     
+    // Increases countLenght by 1 each frame, used to game over when player hits own tail
     public void act()
     {
         countLength++;
         
-        // Causes game over if player collides with tail
+        // Causes game over if player collides with tail, background music is stoped, game over music is played and game over image is shown
         if(countLength > 10 && isTouching(Snake.class)){
             GameWorld gameWorld = (GameWorld) getWorld();
             gameWorld.backgroundMusic.stop();
-            getWorld().addObject(new YouLose("gameOver.png"), getWorld().getWidth()/2, getWorld().getHeight()/2);
+            getWorld().addObject(new YouLose(), getWorld().getWidth()/2, getWorld().getHeight()/2);
             gameOverSound.setVolume(50);
             gameOverSound.play();
             Greenfoot.stop();

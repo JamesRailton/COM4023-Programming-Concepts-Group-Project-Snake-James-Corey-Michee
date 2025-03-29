@@ -7,14 +7,15 @@ import greenfoot.*;
 
 public class Counter extends Actor
 {
-    private int playerScore = 0;
-    GreenfootSound gameWinSound = new GreenfootSound("gamewin.mp3");
+    private int playerScore; 
+    GreenfootSound gameWinSound = new GreenfootSound("gamewin.mp3"); // Imports game win sound
     
     public Counter()
     {
-        setImage(new GreenfootImage("Score: " + playerScore,25,Color.BLUE, Color.WHITE));
+        setImage(new GreenfootImage("Score: " + playerScore,25,Color.BLUE, Color.WHITE)); // Creates player score within world
     }    
     
+    // Keeps player score within world and allows it to increase, also triggers YouWin method 
     public void act()
     {
         setImage(new GreenfootImage("Score: " + playerScore,25,Color.BLUE, Color.WHITE));
@@ -23,14 +24,15 @@ public class Counter extends Actor
     
     public void addScore()
     {
-        playerScore++;
+        playerScore++; // Adds 1 to player score each time
     }
     
     public void addBonusFoodScore()
     {
-        playerScore = playerScore + 3;
+        playerScore = playerScore + 3; // Adds 3 to player score if BonusFood is eaten
     }
     
+    // Halves player score if poisonous food is eaten
     public void halveScore()
     {
         if (playerScore == 1) {
@@ -40,12 +42,13 @@ public class Counter extends Actor
         }
     }
     
+    // Once counter reaches 20 or higher game is won, youWin screen is shown, background music stops and win music is played
     private void youWin()
     {
-         if (playerScore == 15){
+         if (playerScore > 20){
              GameWorld gameWorld = (GameWorld) getWorld();
              gameWorld.backgroundMusic.stop();
-             getWorld().addObject(new YouWin("youWin.png"), getWorld().getWidth()/2, getWorld().getHeight()/2);
+             getWorld().addObject(new YouWin(), getWorld().getWidth()/2, getWorld().getHeight()/2);
              gameWinSound.setVolume(50);
              gameWinSound.play();
              Greenfoot.stop();
