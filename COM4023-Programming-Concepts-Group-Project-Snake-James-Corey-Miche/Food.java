@@ -17,7 +17,7 @@ public class Food extends Actor
     {
         count++;
         
-        if(count > 400){
+        if(count == 400){
             getWorld().removeObject(this);
         }
         

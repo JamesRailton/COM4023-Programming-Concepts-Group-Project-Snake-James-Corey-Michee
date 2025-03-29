@@ -45,7 +45,7 @@ public class Counter extends Actor
     // Once counter reaches 20 or higher game is won, youWin screen is shown, background music stops and win music is played
     private void youWin()
     {
-         if (playerScore > 20){
+         if (playerScore >= 7){
              GameWorld gameWorld = (GameWorld) getWorld();
              gameWorld.backgroundMusic.stop();
              getWorld().addObject(new YouWin(), getWorld().getWidth()/2, getWorld().getHeight()/2);

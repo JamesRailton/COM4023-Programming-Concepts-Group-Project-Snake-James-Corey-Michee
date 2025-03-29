@@ -96,7 +96,6 @@ public class Snake extends Actor
             powerUpSound.play();
             isDoublePointsActive = true;
             doublePointsTimer = 600; 
-            
         }
     }
     
