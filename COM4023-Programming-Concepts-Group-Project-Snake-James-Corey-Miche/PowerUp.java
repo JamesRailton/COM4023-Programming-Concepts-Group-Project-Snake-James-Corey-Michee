@@ -1,13 +1,10 @@
 import greenfoot.*;
-/**
- * @author (Corey Wright, James Railton, Michee Kibenge) 
- * @version (1.0)
- */
-public class PoisonousFood extends Actor
+
+public class PowerUp extends Actor
 {
     private int count;
     
-    public PoisonousFood(String imageName) 
+    public PowerUp(String imageName) 
     {
         setImage(imageName);
     }

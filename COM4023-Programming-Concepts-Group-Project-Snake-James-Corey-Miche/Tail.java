@@ -8,6 +8,7 @@ public class Tail extends Actor
     public static int snakeLength = 1;
     private int countLength = 0;
     private int red, green, blue, snake;
+    GreenfootSound gameOverSound = new GreenfootSound("gameover.mp3");
     
     public Tail(int red, int green, int blue)
     {
@@ -27,8 +28,9 @@ public class Tail extends Actor
         if(countLength > 10 && isTouching(Snake.class)){
             GameWorld gameWorld = (GameWorld) getWorld();
             gameWorld.backgroundMusic.stop();
-            
             getWorld().addObject(new YouLose("gameOver.png"), getWorld().getWidth()/2, getWorld().getHeight()/2);
+            gameOverSound.setVolume(50);
+            gameOverSound.play();
             Greenfoot.stop();
         }
         

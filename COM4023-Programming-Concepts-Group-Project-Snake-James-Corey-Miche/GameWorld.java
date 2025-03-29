@@ -13,6 +13,8 @@ public class GameWorld extends World
     private int foodCount = 0;
     private int poisonousFoodCount = 0;
     private int bonusFoodCount = 0;
+    private int powerUpCount = 0;
+    
     private static final int foodDistance = 40; // Minimum distance food must be away from snake & tail
 
     public GameWorld()
@@ -35,6 +37,7 @@ public class GameWorld extends World
         foodCount++;
         poisonousFoodCount++;
         bonusFoodCount++;
+        powerUpCount++;
         
         if (foodCount > 150) {
             spawnFood(new Food("apple2.png"));
@@ -49,6 +52,11 @@ public class GameWorld extends World
         if (bonusFoodCount > 300) {
             spawnFood(new BonusFood("apple3.png"));
             bonusFoodCount = 0;
+        }
+        
+        if (powerUpCount > 1000){
+            spawnFood(new PowerUp("powerUp.png"));
+            powerUpCount = 0;
         }
     }
     

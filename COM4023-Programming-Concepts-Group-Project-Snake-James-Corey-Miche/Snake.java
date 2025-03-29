@@ -8,10 +8,15 @@ public class Snake extends Actor
 {
     private int red, green, blue, player;
     private int speed = 3;
+    private boolean isDoublePointsActive = false;
+    private int doublePointsTimer = 0;
+
     
     GreenfootSound foodSound = new GreenfootSound("food.mp3");
     GreenfootSound poisonousFoodSound = new GreenfootSound("poisonousfood.mp3");
     GreenfootSound gameOverSound = new GreenfootSound("gameover.mp3");
+    GreenfootSound powerUpSound = new GreenfootSound("doublePoints.mp3");
+    GreenfootSound bonusFoodSound = new GreenfootSound("bonusFood.mp3");
     
     Counter counter = new Counter();
 
@@ -37,6 +42,8 @@ public class Snake extends Actor
         eatPoisonousFood();
         eatBonusFood();
         gameBoundaries();
+        eatPowerUp();  // make sure you call this
+        updatePowerUpTimer(); 
     }
 
     private void playerInput()
@@ -62,13 +69,12 @@ public class Snake extends Actor
     {
         // Used to increase length of snake when food is eaten, and add eaten food to score
         if(isTouching(Food.class)){
-            foodSound.setVolume(50);
-            foodSound.play();
-            
-            GameWorld gameWorld = (GameWorld) getWorld();
+        GameWorld gameWorld = (GameWorld) getWorld();
+        if(isDoublePointsActive) {
             gameWorld.snakeCounter.addScore();
-            
-            Tail.snakeLength += 30;
+        }
+        gameWorld.snakeCounter.addScore();      
+        Tail.snakeLength += 30;
         }
     }
 
@@ -84,8 +90,21 @@ public class Snake extends Actor
         }
     }
     
+    private void eatPowerUp() {
+         if(isTouching(PowerUp.class)){
+            powerUpSound.setVolume(50);
+            powerUpSound.play();
+            isDoublePointsActive = true;
+            doublePointsTimer = 300;  //
+            
+        }
+    }
+    
     private void eatBonusFood() {
         if(isTouching(BonusFood.class)){
+            bonusFoodSound.setVolume(50);
+            bonusFoodSound.play();
+            
             GameWorld gameWorld = (GameWorld) getWorld();
             gameWorld.snakeCounter.addBonusFoodScore();
             
@@ -102,7 +121,17 @@ public class Snake extends Actor
             }
         }
     }
-
+    
+    private void updatePowerUpTimer()
+    {
+        if(isDoublePointsActive) {
+            doublePointsTimer--;
+            if(doublePointsTimer <= 0) {
+                isDoublePointsActive = false;
+            }
+        }
+    }
+    
     private void gameBoundaries()
     {
         // Used to game over if player leaves game area
