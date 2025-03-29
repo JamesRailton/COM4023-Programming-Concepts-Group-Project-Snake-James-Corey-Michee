@@ -13,4 +13,5 @@ Bonus Pickup - Collect rare bonus pick up to give a temporary double points to s
 Click 'Run' to start the game and use your directional keys to control the snake.
 
 Greenfoot Scenario - https://www.greenfoot.org/scenarios/34878
+
 *Game made with ❤️ in the UK*
