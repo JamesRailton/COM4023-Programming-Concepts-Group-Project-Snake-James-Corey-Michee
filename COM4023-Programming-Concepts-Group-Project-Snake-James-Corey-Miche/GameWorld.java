@@ -12,7 +12,7 @@ public class GameWorld extends World
     
     Counter snakeCounter = new Counter(); //Counter for the game score
     
-    //Counters for in-game pickups
+    //Counters for in-game pickups, these are used to control the spawning of in game pick ups
     private int foodCount;
     private int poisonousFoodCount;
     private int bonusFoodCount;
@@ -36,7 +36,7 @@ public class GameWorld extends World
     public void act()
     {
         // Sets background volume and starts music on loop
-        backgroundMusic.setVolume(50);
+        backgroundMusic.setVolume(25);
         backgroundMusic.playLoop();
         
         // Increases counters by 1 each frame
@@ -45,26 +45,26 @@ public class GameWorld extends World
         bonusFoodCount++;
         powerUpCount++;
         
-        // Used to spawn food
-        if (foodCount > 175) {
+        // Used to spawn food and reset counter to 0
+        if (foodCount == 175) {
             spawnFood(new Food());
             foodCount = 0;
         }
         
         // Used to spawn poisonous food
-        if (poisonousFoodCount > 50) {
+        if (poisonousFoodCount == 50) {
             spawnFood(new PoisonousFood());
             poisonousFoodCount = 0;
         }
         
         // Used to spawn bonus food
-        if (bonusFoodCount > 1000) {
+        if (bonusFoodCount == 1000) {
             spawnFood(new BonusFood());
             bonusFoodCount = 0;
         }
         
         // Used to spawn power up
-        if (powerUpCount > 750){
+        if (powerUpCount == 750){
             spawnFood(new PowerUp());
             powerUpCount = 0;
         }

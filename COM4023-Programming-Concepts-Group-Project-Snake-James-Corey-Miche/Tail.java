@@ -26,7 +26,7 @@ public class Tail extends Actor
             GameWorld gameWorld = (GameWorld) getWorld();
             gameWorld.backgroundMusic.stop();
             getWorld().addObject(new YouLose(), getWorld().getWidth()/2, getWorld().getHeight()/2);
-            gameOverSound.setVolume(50);
+            gameOverSound.setVolume(25);
             gameOverSound.play();
             Greenfoot.stop();
         }

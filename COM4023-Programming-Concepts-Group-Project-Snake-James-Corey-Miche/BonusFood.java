@@ -17,7 +17,7 @@ public class BonusFood extends Actor
     {
         foodCount++;
 
-        if(foodCount > 400){
+        if(foodCount == 400){
             getWorld().removeObject(this);
         }
         
