@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Snake
 comment0.text=\n\ @author\ (Corey\ Wright,\ James\ Railton,\ Michee\ Kibenge)\ \n\ @version\ (1.0)\n
-comment1.params=player\ red\ green\ blue
-comment1.target=Snake(int,\ int,\ int,\ int)
+comment1.params=
+comment1.target=Snake()
 comment2.params=
 comment2.target=void\ act()
 comment3.params=

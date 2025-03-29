@@ -1,21 +1,9 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
-/**
- * Trying to find better way of implimenting lose/win screens (@James)
- */
 public class YouWin extends Actor
 {
-    /**
-     * Act - do whatever the YouWin wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
+    public YouWin()
     {
-        // Add your action code here.
-    }
-    
-    public YouWin(String setImage)
-    {
-        setImage(setImage);
+        setImage("youWin.png"); // Sets actor to game win image
     }
 }

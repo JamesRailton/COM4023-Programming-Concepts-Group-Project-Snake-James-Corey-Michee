@@ -7,55 +7,65 @@ import java.util.List;
 
 public class GameWorld extends World
 {
-    GreenfootSound backgroundMusic = new GreenfootSound("themesong.mp3");
-    Snake playerSnake = new Snake(0, 0, 255, 255);
-    Counter snakeCounter = new Counter();
-    private int foodCount = 0;
-    private int poisonousFoodCount = 0;
-    private int bonusFoodCount = 0;
-    private int powerUpCount = 0;
+    GreenfootSound backgroundMusic = new GreenfootSound("themesong.mp3"); //Imports background music
+    Snake playerSnake = new Snake();
+    
+    Counter snakeCounter = new Counter(); //Counter for the game score
+    
+    //Counters for in-game pickups
+    private int foodCount;
+    private int poisonousFoodCount;
+    private int bonusFoodCount;
+    private int powerUpCount;
     
     private static final int foodDistance = 40; // Minimum distance food must be away from snake & tail
 
     public GameWorld()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(700, 500, 1);
+        super(700, 500, 1); // Creates game world of 700 * 500 size
 
-        setBackground("rivets.jpg");
+        setBackground("rivets.jpg"); // Sets background for game
 
+        // Adds snake & counter objects to game
         addObject(playerSnake, 500, 300);
         addObject(snakeCounter,50, 30);
 
-        Tail.snakeLength = 1;  
+        Tail.snakeLength = 1; // Resets tail length after restart to prevent issues
     }
 
     public void act()
     {
+        // Sets background volume and starts music on loop
         backgroundMusic.setVolume(50);
         backgroundMusic.playLoop();
+        
+        // Increases counters by 1 each frame
         foodCount++;
         poisonousFoodCount++;
         bonusFoodCount++;
         powerUpCount++;
         
-        if (foodCount > 150) {
-            spawnFood(new Food("apple2.png"));
+        // Used to spawn food
+        if (foodCount > 175) {
+            spawnFood(new Food());
             foodCount = 0;
         }
         
-        if (poisonousFoodCount > 75) {
-            spawnFood(new PoisonousFood("apple1.png"));
+        // Used to spawn poisonous food
+        if (poisonousFoodCount > 50) {
+            spawnFood(new PoisonousFood());
             poisonousFoodCount = 0;
         }
         
-        if (bonusFoodCount > 300) {
-            spawnFood(new BonusFood("apple3.png"));
+        // Used to spawn bonus food
+        if (bonusFoodCount > 1000) {
+            spawnFood(new BonusFood());
             bonusFoodCount = 0;
         }
         
-        if (powerUpCount > 1000){
-            spawnFood(new PowerUp("powerUp.png"));
+        // Used to spawn power up
+        if (powerUpCount > 750){
+            spawnFood(new PowerUp());
             powerUpCount = 0;
         }
     }

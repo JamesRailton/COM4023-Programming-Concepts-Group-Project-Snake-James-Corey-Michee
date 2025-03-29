@@ -2,13 +2,14 @@ import greenfoot.*;
 
 public class PowerUp extends Actor
 {
-    private int count;
+    private int count; // counter for PowerUp removal
     
-    public PowerUp(String imageName) 
+    public PowerUp() 
     {
-        setImage(imageName);
+        setImage("powerUp.png"); // Sets actor image to power up
     }
     
+    // Used to increase counter by 1 each frame and once counter reaches 400 removes Poisonous Food from game and also removes if player collides with food
     public void act()
     {
         count++;
