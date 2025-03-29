@@ -5,8 +5,7 @@ import greenfoot.*;
  */
 public class Food extends Actor
 {
-    private int red, green, blue;
-    private int count = 0;
+    private int count;
     
     public Food(String imageName) 
     {

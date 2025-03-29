@@ -46,7 +46,7 @@ public class Counter extends Actor
              GameWorld gameWorld = (GameWorld) getWorld();
              gameWorld.backgroundMusic.stop();
              getWorld().addObject(new YouWin("youWin.png"), getWorld().getWidth()/2, getWorld().getHeight()/2);
-             gameWinSound.setVolume(25);
+             gameWinSound.setVolume(50);
              gameWinSound.play();
              Greenfoot.stop();
          }
