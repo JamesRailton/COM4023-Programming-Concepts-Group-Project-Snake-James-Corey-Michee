@@ -8,4 +8,9 @@ Red Fruit - Avoid the red fruit, it will half your score & dramatically increase
 
 Yellow Fruit - Be on the look out for yellow fruit! It gives a bonus 3 points and reduces the size of your snake, making the game easier.
 
+Bonus Pickup - Collect rare bonus pick ups to give a temporary double points to score for 5 seconds.
+
 Click 'Run' to start the game and use your directional keys to control the snake.
+
+
+*Game made with ❤️ in the UK*
